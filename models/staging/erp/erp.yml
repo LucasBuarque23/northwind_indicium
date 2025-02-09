@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: erp
+    description: Sistema de vendas da Northwind.
+    schema: raw_northwind
+    tables:
+      - name: category
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: CATEGORYNAME  # Use o nome correto da coluna
+            tests:
+              - not_null
+          - name: DESCRIPTION
+            tests: []
+
+      - name: products
+        columns:
+          - name: ID
+            tests:
+              - unique
+              - not_null
+          - name: SUPPLIERID
+            tests: []
+          - name: CATEGORYID
+            tests: []
+          - name: PRODUCTNAME
+            tests:
+              - not_null
+          - name: QUANTITYPERUNIT
+            tests: []
+          - name: UNITPRICE
+            tests: []
+          - name: UNITSINSTOCK
+            tests: []
+          - name: UNITSONORDER
+            tests: []
+          - name: REORDERLEVEL
+            tests: []
+          - name: DISCONTINUED
+            tests: []
+
+      - name: suppliers
+        columns:
+          - name: ID
+            tests:
+              - unique
+              - not_null
+          - name: COMPANYNAME
+            tests:
+              - not_null
